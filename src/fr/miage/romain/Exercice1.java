@@ -14,7 +14,7 @@ public class Exercice1 {
 	
 	public static void toStringFile(String pathFile){
 		
-		for(File file : new File(pathFile).listFiles()){
+		for(File file : new File(pathFile).listFiles(new MonFiltre())){
 			
 			if(file.isDirectory()){
 				System.out.println(file.toString());
