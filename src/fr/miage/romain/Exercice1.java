@@ -69,9 +69,19 @@ public class Exercice1 {
 	
 	private class MonFiltre2 implements FilenameFilter {
 
+		private String regex;
+		
+		public MonFiltre2(String regex){
+			this.regex=regex;
+		}
+		
+		public MonFiltre2(){
+			this.regex=".java";
+		}
+		
 		@Override
 		public boolean accept(File dir, String name) {
-			return name.endsWith(".java");
+			return name.contains(regex);
 		}
 		
 	}
