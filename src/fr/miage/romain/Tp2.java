@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 public class Tp2 {
 
@@ -70,7 +71,7 @@ public class Tp2 {
 		System.out.println("Affichage des attributs");
 		  
 	    for(Field f : cl.getFields()){
-	    	System.out.println(f.toString());
+	    	System.out.println(Modifier.toString(f.getModifiers()) + " "+ f.getType().toString() +" " + f.getName()+";");
 	    }
 	  }
 
@@ -78,7 +79,6 @@ public class Tp2 {
 	    
 		  System.out.println("Affichage des constructeurs");
 
-		  
 		  for(Constructor c : cl.getConstructors()){
 			  System.out.println(c.toString());
 		  }
@@ -90,7 +90,7 @@ public class Tp2 {
 		  System.out.println("Affichage des méthodes");
 		  
 		  for(Method m : cl.getMethods()){
-			  System.out.println(m.toString());
+			  System.out.println(Modifier.toString(m.getModifiers())+" "+m.getName());
 		  }
 		  
 	  }
