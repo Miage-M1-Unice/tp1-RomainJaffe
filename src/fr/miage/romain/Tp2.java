@@ -40,15 +40,21 @@ public class Tp2 {
 	    // CODE A ECRIRE
 
 	   // Récupération de la superclasse si elle existe (null si cl est le type Object)
-	    //Class supercl = // CODE A ECRIRE
+	    Class supercl = cl.getSuperclass();
 
-	    // On ecrit le "extends " que si la superclasse est non nulle et
-	    // différente de Object
-	    // CODE A ECRIRE
-
-	    // Affichage des interfaces que la classe implemente
-	    // CODE A ECRIRE
-
+	    if(supercl!=null){
+	    	System.out.println("extends "+supercl);
+	    }
+	   
+	    if(cl.getInterfaces().length>0){
+	    	System.out.println("implements");
+	    	
+	    	for(Class c : cl.getInterfaces()){
+	    		System.out.println(c.getName()+" ");
+	    	}
+	    	
+	    }
+	    
 	    // Enfin, l'accolade ouvrante !
 	    System.out.print(" {\n");
 	    
