@@ -17,7 +17,7 @@ public class MonFiltre implements FilenameFilter {
 	
 	@Override
 	public boolean accept(File dir, String name) {
-		return name.contains(regex);
+        return name.endsWith(regex) || new File(dir.getPath()+"/"+name).isDirectory();
 	}
 
 }

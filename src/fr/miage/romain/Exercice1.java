@@ -19,7 +19,6 @@ public class Exercice1 {
 		for(File file : new File(pathFile).listFiles(new MonFiltre())){
 			
 			if(file.isDirectory()){
-				System.out.println(file.toString());
 				toStringFile(file.getPath());
 			} else {
 				System.out.println(file.toString());
@@ -35,7 +34,6 @@ public class Exercice1 {
 		for(File file : new File(pathFile).listFiles(new MonFiltre2())){
 			
 			if(file.isDirectory()){
-				System.out.println(file.toString());
 				toStringFile(file.getPath());
 			} else {
 				System.out.println(file.toString());
@@ -52,12 +50,11 @@ public class Exercice1 {
 			
 			@Override
 			public boolean accept(File dir, String name) {
-				return name.endsWith(".java");
+				return name.endsWith(".java") || new File(dir.getPath()+"/"+name).isDirectory();
 			}
 		})){
 			
 			if(file.isDirectory()){
-				System.out.println(file.toString());
 				toStringFile(file.getPath());
 			} else {
 				System.out.println(file.toString());
@@ -81,7 +78,7 @@ public class Exercice1 {
 		
 		@Override
 		public boolean accept(File dir, String name) {
-			return name.contains(regex);
+			return name.endsWith(regex) || new File(dir.getPath()+"/"+name).isDirectory();
 		}
 		
 	}
