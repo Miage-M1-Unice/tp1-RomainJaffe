@@ -36,21 +36,26 @@ public class Tp2 {
 
 	  /** Cette méthode affiche par ex "public class Toto extends Tata implements Titi, Tutu {" */
 	  public static void afficheEnTeteClasse(Class cl) {
-	    //  Affichage du modifier et du nom de la classe
-	    // CODE A ECRIRE
 
-	   // Récupération de la superclasse si elle existe (null si cl est le type Object)
+		System.out.println("");
+
 	    Class supercl = cl.getSuperclass();
 
 	    if(supercl!=null){
-	    	System.out.println("extends "+supercl);
+	    	System.out.print("extends "+supercl+" ");
 	    }
 	   
 	    if(cl.getInterfaces().length>0){
-	    	System.out.println("implements");
+	    	System.out.print ("implements ");
+	    	
+	    	int cpt=0; 
 	    	
 	    	for(Class c : cl.getInterfaces()){
-	    		System.out.println(c.getName()+" ");
+	    		System.out.print(c.getName());
+	    		if(cpt<cl.getInterfaces().length-1){
+	    			System.out.print(", ");
+	    		}
+	    		cpt++;
 	    	}
 	    	
 	    }
